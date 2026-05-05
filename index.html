@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Joseph Berlucchi — Software Engineer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Joseph Berlucchi — Software Engineer at Northrop Grumman. Full-stack, San Diego, native SoCal surfer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0e0e10; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-family: "DM Sans", system-ui, sans-serif; color: #ece4d4; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-thumb { background: #26262a; border-radius: 5px; }
+  ::-webkit-scrollbar-track { background: #0e0e10; }
+  html { scroll-behavior: smooth; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="resume-data.jsx"></script>
+<script type="text/babel" src="obsidian.jsx"></script>
+
+<script type="text/babel" data-presets="env,react">
+  ReactDOM.createRoot(document.getElementById('root')).render(<ObsidianResume />);
+</script>
+</body>
+</html>

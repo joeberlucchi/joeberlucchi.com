@@ -1,0 +1,117 @@
+// Joseph Berlucchi — resume data, shared across all three directions.
+window.RESUME = {
+  name: 'Joseph Berlucchi',
+  title: 'Software Engineer',
+  location: 'San Diego, CA',
+  email: 'joeberlucchi2019@gmail.com',
+  phone: '760-522-0434',
+  links: {
+    linkedin: 'https://www.linkedin.com/in/jberlucchi/',
+    github: 'https://github.com/joeberlucchi',
+  },
+  // First-person, conversational. Used for hero / About.
+  intro: 'Full-stack engineer, native SoCal surfer, perpetual tinkerer. I build web applications in the defense industry — and when the swell\u2019s good, you\u2019ll find me in the water before standup.',
+  about: [
+    'I\'m a Software Engineer at Northrop Grumman with 3+ years across the stack — React and TypeScript up front, Django, Java, and Node.js on the back. I care about software that ships, solves real problems, and gets sharper with every customer demo.',
+    'Born and raised in North County San Diego, I learned to surf before I learned to code, and I\u2019ve been chasing both ever since. Most weekends start at a dawn patrol session somewhere between Oceanside and Black\u2019s — the rest of the time, I\u2019m hiking the local trails, cooking through a backlog of recipes, or reading something well past my bedtime.',
+    'I graduated from UC San Diego in 2024 with a B.S. in Computer Science, with coursework spanning Machine Learning, Computer Vision, and Operating Systems. Lately I\u2019ve been leveraging AI tooling to accelerate UI development and improve team productivity — and I love presenting work directly to customers, gathering feedback, and iterating.',
+  ],
+  now: [
+    'Modernizing a tactical web application UI on the TDOL program at Northrop Grumman.',
+    'Pairing with AI tools (Insights GPT, Claude Code) to ship UI work ~5× faster.',
+    'Automating Jenkins build & deploy pipelines so the team spends less time on ceremony.',
+    'Reading about systems design and learning Rust on the side.',
+  ],
+  experience: [
+    {
+      company: 'Northrop Grumman',
+      role: 'Associate Software Engineer',
+      location: 'San Diego, CA',
+      start: 'Jun 2024',
+      end: 'Present',
+      summary: 'Tactical Data Orchestration Layer (TDOL) — full-stack web application for an active customer.',
+      bullets: [
+        'Build and maintain features across the stack using HTML, CSS, JavaScript, jQuery, and CanJS on the frontend with Java on the backend.',
+        'Leveraged company-approved AI tooling (Insights GPT) to overhaul and modernize the UI, achieving an estimated 5× productivity improvement.',
+        'Automated build and deployment workflows by creating Jenkins jobs, reducing manual overhead for the whole team.',
+        'Maintain a technical documentation wiki to keep the team aligned on architecture and processes.',
+        'Present new features directly to customers, gather feedback, and iterate to improve the product.',
+      ],
+    },
+    {
+      company: 'Northrop Grumman',
+      role: 'Software Engineer Intern',
+      location: 'San Diego, CA',
+      start: 'Jun 2023',
+      end: 'Aug 2023',
+      summary: 'Data generation and validation tooling for a live defense network.',
+      bullets: [
+        'Built a Python data generator in Jupyter Notebooks to transpose, randomize, and stress-test input data for a live defense network.',
+        'Implemented unit testing and data visualization to validate output quality, then optimized for speed and accuracy.',
+        'Maintained a remote Java codebase that simulates and produces data used across the network.',
+      ],
+    },
+    {
+      company: 'Northrop Grumman',
+      role: 'Software Engineer Intern',
+      location: 'San Diego, CA',
+      start: 'Jun 2022',
+      end: 'May 2023',
+      summary: 'Internal-tooling consolidation — merged two web apps into one.',
+      bullets: [
+        'Built a unified web application consolidating two internal tools, merging their databases into a single system.',
+        'Implemented the frontend in React + TypeScript and the backend in Django + Python.',
+        'Optimized the RESTful backend, resulting in significantly faster data loading times.',
+        'Improved UI/UX across web pages, enhancing usability for internal users.',
+        'Received the Bravo Award for excellent performance — internship extended through May 2023.',
+      ],
+    },
+  ],
+  projects: [
+    {
+      name: 'Qwiver',
+      role: 'Co-founder & Backend Lead',
+      stack: ['Node.js', 'MySQL', 'REST API'],
+      start: 'Jan 2020',
+      end: 'Dec 2023',
+      summary: 'A social app blending Instagram-style feeds with Snapchat-style ephemerality.',
+      bullets: [
+        'Co-founded the project and recruited a team of 3–4 developers.',
+        'Designed and built a RESTful Node.js API with a MySQL database backing user data.',
+        'Led the team through maintenance and optimization, reaching 10 beta users in internal testing.',
+      ],
+    },
+    {
+      name: 'TDOL UI Modernization',
+      role: 'Frontend Lead',
+      stack: ['HTML', 'CSS', 'JS', 'CanJS', 'AI tooling'],
+      start: '2024',
+      end: 'Present',
+      summary: 'Overhauled a legacy tactical web app\'s UI using AI-assisted development.',
+      bullets: [
+        'Pairing with Insights GPT to refactor legacy markup, improve accessibility, and rewrite styles.',
+        '~5× productivity uplift on UI tickets versus the prior baseline.',
+        'Customer-facing demos every sprint — feedback loops measured in days, not months.',
+      ],
+    },
+  ],
+  education: {
+    school: 'University of California, San Diego',
+    location: 'La Jolla, CA',
+    degree: 'B.S., Computer Science',
+    graduated: 'March 2024',
+    coursework: [
+      'Data Structures',
+      'Algorithm Analysis',
+      'Machine Learning',
+      'Computer Vision',
+      'Operating Systems',
+    ],
+  },
+  skills: {
+    Languages: ['TypeScript', 'JavaScript', 'Java', 'Python', 'SQL', 'HTML', 'CSS'],
+    Frameworks: ['React', 'Django', 'Node.js', 'jQuery', 'CanJS'],
+    Databases: ['MySQL', 'PostgreSQL'],
+    Tools: ['Git', 'GitHub', 'Docker', 'Maven', 'Jenkins', 'Linux', 'VS Code', 'Claude Code', 'Insights GPT'],
+  },
+};
