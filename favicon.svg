@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#0e0e10"/>
+  <text x="32" y="40"
+        font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="28" font-weight="700"
+        text-anchor="middle" fill="#ece4d4"
+        letter-spacing="0.5">JB</text>
+  <rect x="18" y="46" width="28" height="3" rx="1.5" fill="#cae92f"/>
+</svg>
