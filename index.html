@@ -49,9 +49,17 @@
   .nav-link { padding: 10px 6px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
   .cta-link { min-height: 44px; display: inline-flex; align-items: center; }
 
-  /* Tablet & phone: collapse secondary nav, stack grids, shrink padding */
+  /* Tablet & phone: wrap section nav to its own row, stack grids, shrink padding */
   @media (max-width: 820px) {
-    .nav-secondary { display: none !important; }
+    .nav-secondary {
+      order: 99 !important;
+      flex-basis: 100% !important;
+      justify-content: center !important;
+      gap: 4px !important;
+      flex-wrap: wrap !important;
+      padding-top: 4px;
+    }
+    .nav-secondary .nav-link { font-size: 13px; padding: 8px 8px; }
     .skills-row { grid-template-columns: 1fr !important; gap: 6px !important; text-align: center; }
     .contact-grid { grid-template-columns: 1fr !important; }
     .contact-cell { border-right: none !important; border-bottom: 1px solid #26262a !important; }
@@ -61,6 +69,8 @@
   }
 
   @media (max-width: 480px) {
+    .nav-secondary { gap: 2px !important; }
+    .nav-secondary .nav-link { font-size: 12px; padding: 8px 6px; }
     .meta-grid { flex-direction: column; align-items: center; }
   }
 

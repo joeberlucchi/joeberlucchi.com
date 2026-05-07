@@ -114,8 +114,12 @@ function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' })
             Joseph Berlucchi
           </span>
         </a>
-        <span style={{ flex: 1 }} />
-        <nav aria-label="Primary" className="nav-secondary" style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
+        <span style={{ flex: '1 1 0', minWidth: 0 }} />
+        <nav
+          aria-label="Primary"
+          className="nav-secondary"
+          style={{ display: 'flex', gap: 18, alignItems: 'center', order: 0 }}
+        >
           <a href="#about" className="nav-link" style={{ color: dim }}>About</a>
           <a href="#work" className="nav-link" style={{ color: dim }}>Work</a>
           <a href="#projects" className="nav-link" style={{ color: dim }}>Projects</a>
