@@ -155,29 +155,23 @@ function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' })
         >
           <a href="#about" className="nav-link" style={{ color: dim }}>About</a>
           <a href="#work" className="nav-link" style={{ color: dim }}>Work</a>
-          <a href="#projects" className="nav-link" aria-label="Projects" style={{ color: dim }}>
-            <span className="label-full">Projects</span>
-            <span className="label-short">Proj</span>
-          </a>
+          <a href="#projects" className="nav-link" style={{ color: dim }}>Projects</a>
           <a href="#skills" className="nav-link" style={{ color: dim }}>Skills</a>
-          <a href="#education" className="nav-link" aria-label="Education" style={{ color: dim }}>
-            <span className="label-full">Education</span>
-            <span className="label-short">Edu</span>
-          </a>
-          <a
-            href="#contact"
-            className="cta-link"
-            aria-label="Get in touch"
-            style={{
-              color: ink, textDecoration: 'none', background: accent,
-              padding: '8px 16px', borderRadius: 999, fontWeight: 600,
-              marginLeft: 6,
-            }}
-          >
-            <span className="cta-full">Get in touch →</span>
-            <span className="cta-short">Contact</span>
-          </a>
+          <a href="#education" className="nav-link" style={{ color: dim }}>Education</a>
         </nav>
+        <a
+          href="#contact"
+          className="cta-link"
+          aria-label="Get in touch"
+          style={{
+            color: ink, textDecoration: 'none', background: accent,
+            padding: '8px 16px', borderRadius: 999, fontWeight: 600,
+            marginLeft: 6,
+          }}
+        >
+          <span className="cta-full">Get in touch →</span>
+          <span className="cta-short">Contact</span>
+        </a>
       </header>
 
       <main id="top" role="main">
