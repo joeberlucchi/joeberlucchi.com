@@ -27,6 +27,30 @@ const OBSIDIAN_FONTS = {
 
 function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' }) {
   const R = window.RESUME;
+  const headerRef = React.useRef(null);
+
+  // Keep scroll-padding-top equal to the live nav height so anchor jumps land
+  // with each section's top border flush against the nav's bottom border.
+  React.useEffect(() => {
+    const apply = () => {
+      const h = headerRef.current ? headerRef.current.offsetHeight : 0;
+      if (h > 0) document.documentElement.style.scrollPaddingTop = h + 'px';
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    let ro;
+    if (typeof ResizeObserver !== 'undefined' && headerRef.current) {
+      ro = new ResizeObserver(apply);
+      ro.observe(headerRef.current);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(apply);
+    }
+    return () => {
+      window.removeEventListener('resize', apply);
+      if (ro) ro.disconnect();
+    };
+  }, []);
 
   const ink = '#0e0e10';
   const ink2 = '#16161a';
@@ -89,10 +113,11 @@ function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' })
       backgroundImage: `radial-gradient(${border} 1px, transparent 1px)`,
       backgroundSize: '32px 32px',
       backgroundPosition: '0 0',
-      overflowX: 'hidden',
+      overflowX: 'clip',
     }}>
       {/* Top bar */}
       <header
+        ref={headerRef}
         role="banner"
         className="header-bar"
         style={{
@@ -105,16 +130,24 @@ function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' })
           fontFamily: mono, fontSize: 12, color: dim,
         }}
       >
-        <a href="#top" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: cream, textDecoration: 'none' }}>
+        <a
+          href="#top"
+          className="brand"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: cream, textDecoration: 'none' }}
+        >
           <span aria-hidden="true" style={{
             width: 10, height: 10, background: accent, borderRadius: 1,
             transform: 'rotate(45deg)', display: 'inline-block',
           }} />
-          <span style={{ fontFamily: display, fontSize: 17, fontWeight: 500, letterSpacing: -0.3 }}>
+          <span style={{
+            fontFamily: display,
+            fontSize: 'clamp(20px, 5.2vw, 22px)',
+            fontWeight: 500, letterSpacing: -0.3,
+          }}>
             Joseph Berlucchi
           </span>
         </a>
-        <span style={{ flex: '1 1 0', minWidth: 0 }} />
+        <span className="nav-spacer" style={{ flex: '1 1 0', minWidth: 0 }} />
         <nav
           aria-label="Primary"
           className="nav-secondary"
@@ -122,20 +155,29 @@ function ObsidianResume({ accent = '#cae92f', fontPair = 'DM Serif + DM Sans' })
         >
           <a href="#about" className="nav-link" style={{ color: dim }}>About</a>
           <a href="#work" className="nav-link" style={{ color: dim }}>Work</a>
-          <a href="#projects" className="nav-link" style={{ color: dim }}>Projects</a>
+          <a href="#projects" className="nav-link" aria-label="Projects" style={{ color: dim }}>
+            <span className="label-full">Projects</span>
+            <span className="label-short">Proj</span>
+          </a>
           <a href="#skills" className="nav-link" style={{ color: dim }}>Skills</a>
-          <a href="#education" className="nav-link" style={{ color: dim }}>Education</a>
+          <a href="#education" className="nav-link" aria-label="Education" style={{ color: dim }}>
+            <span className="label-full">Education</span>
+            <span className="label-short">Edu</span>
+          </a>
+          <a
+            href="#contact"
+            className="cta-link"
+            aria-label="Get in touch"
+            style={{
+              color: ink, textDecoration: 'none', background: accent,
+              padding: '8px 16px', borderRadius: 999, fontWeight: 600,
+              marginLeft: 6,
+            }}
+          >
+            <span className="cta-full">Get in touch →</span>
+            <span className="cta-short">Contact</span>
+          </a>
         </nav>
-        <a
-          href="#contact"
-          className="cta-link"
-          style={{
-            color: ink, textDecoration: 'none', background: accent,
-            padding: '8px 16px', borderRadius: 999, fontWeight: 600,
-          }}
-        >
-          Get in touch →
-        </a>
       </header>
 
       <main id="top" role="main">

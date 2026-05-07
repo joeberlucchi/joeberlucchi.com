@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; background: #0e0e10; overflow-x: hidden; }
+  html, body { margin: 0; padding: 0; background: #0e0e10; overflow-x: clip; }
   *, *::before, *::after { box-sizing: border-box; }
   body {
     font-family: "DM Sans", system-ui, sans-serif;
@@ -23,7 +23,8 @@
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-thumb { background: #26262a; border-radius: 5px; }
   ::-webkit-scrollbar-track { background: #0e0e10; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  @media (max-width: 820px) { html { scroll-padding-top: 110px; } }
   a { color: inherit; }
   img { max-width: 100%; height: auto; display: block; }
 
@@ -52,17 +53,50 @@
   .nav-link { padding: 10px 6px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
   .cta-link { min-height: 44px; display: inline-flex; align-items: center; }
 
-  /* Tablet & phone: wrap section nav to its own row, stack grids, shrink padding */
+  /* Desktop: show full labels, hide mobile-abbreviated ones */
+  .cta-short, .label-short { display: none; }
+
+  /* Tablet & phone: brand centered on row 1, all nav links + CTA wrapped on row 2 */
   @media (max-width: 820px) {
+    .header-bar {
+      row-gap: 8px !important;
+      padding-top: 12px !important;
+      padding-bottom: 10px !important;
+    }
+    .brand {
+      flex-basis: 100% !important;
+      justify-content: center !important;
+      order: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .nav-spacer { display: none !important; }
     .nav-secondary {
       order: 99 !important;
       flex-basis: 100% !important;
       justify-content: center !important;
-      gap: 4px !important;
-      flex-wrap: wrap !important;
-      padding-top: 4px;
+      align-items: center !important;
+      gap: clamp(2px, 1vw, 6px) !important;
+      flex-wrap: nowrap !important;
+      padding-top: 0 !important;
+      width: 100%;
     }
-    .nav-secondary .nav-link { font-size: 13px; padding: 8px 8px; }
+    .nav-secondary .nav-link {
+      font-size: clamp(12px, 3.4vw, 15px) !important;
+      padding: 6px clamp(6px, 2vw, 10px) !important;
+      white-space: nowrap !important;
+      min-height: 32px !important;
+      border-right: 1px solid #3a3a40;
+    }
+    .nav-secondary .nav-link:last-of-type { border-right: none; }
+    .nav-secondary .cta-link {
+      font-size: clamp(11px, 3vw, 14px) !important;
+      padding: 5px 11px !important;
+      min-height: 30px !important;
+      white-space: nowrap !important;
+      margin-left: clamp(2px, 1vw, 6px) !important;
+    }
+    .cta-full, .label-full { display: none !important; }
+    .cta-short, .label-short { display: inline !important; }
     .skills-row { grid-template-columns: 1fr !important; gap: 6px !important; text-align: center; }
     .contact-grid { grid-template-columns: 1fr !important; }
     .contact-cell { border-right: none !important; border-bottom: 1px solid #26262a !important; }
@@ -72,8 +106,9 @@
   }
 
   @media (max-width: 480px) {
-    .nav-secondary { gap: 2px !important; }
-    .nav-secondary .nav-link { font-size: 12px; padding: 8px 6px; }
+    .nav-secondary { gap: clamp(1px, 0.6vw, 4px) !important; }
+    .nav-secondary .nav-link { padding: 6px 5px !important; font-size: clamp(11px, 3.2vw, 14px) !important; }
+    .nav-secondary .cta-link { padding: 5px 9px !important; }
     .meta-grid { flex-direction: column; align-items: center; }
   }
 
